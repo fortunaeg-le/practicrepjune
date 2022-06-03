@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <h1>
+    <a href="{% url 'posts:index' %}">Последние новости</a>
+  </h1>
+{% endblock %}
+{% block content %}
+  <main>
+      <h3>
+        <a href="{% url 'posts:index' %}">Последние новости</a>
+      </h3>
+      {% for post in page_obj%}
+        <article>
+          <ul>
+            <li>
+              Автор: {{ post.author }}
+            </li>
+            <li>
+              Дата публикации: {{ post.pub_date|date:"d E Y"}}
+            </li>
+          </ul>
+          <p>{{ post.text }}</p>
+        </article>
+      {% endfor %}
+      {% if not forloop.last %}<hr>{% endif %}
+  </main>
+{% endblock %}
