@@ -5,7 +5,7 @@ User = get_user_model()
 
 
 class Post(models.Model):
-    post = models.TextField(
+    text = models.TextField(
         verbose_name='текст поста',
         help_text='текст поста',
     )
@@ -22,3 +22,12 @@ class Post(models.Model):
     class Meta:
         ordering = ['-pub_date']
         verbose_name = 'Пост'
+
+
+"""class Comments(models.Model):
+    text = models.TextField(
+        verbose_name='Текст комента',
+        help_text='Текст поста'
+    )
+    author"""
+
